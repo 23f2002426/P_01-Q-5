@@ -257,6 +257,7 @@ def handle_update(upd):
 
 
 def poll_loop():
+    tg("deleteWebhook", drop_pending_updates=True)
     log_event(event="startup", base_url=BASE_URL, model=MODEL)
     offset = 0
     pool = ThreadPoolExecutor(max_workers=6)
