@@ -112,7 +112,7 @@ Rules:
 3. The message usually spells out the exact JSON shape it wants, e.g. Reply with ONLY {"answer": {"state": "<state>"}, "log_url": "..."}.
 4. When you are ready to answer, reply with ONLY that JSON object — no prose, no markdown fences. Use a placeholder like "LOG_URL" for the log_url value; the harness substitutes the real URL. Match the requested shape for "answer" EXACTLY (keys, nesting, types: numbers as numbers unless a string is asked for).
 5. If the message does not specify a shape, reply {"answer": <your concise answer>, "log_url": "LOG_URL"}.
-6. If a mid-conversation message is only setup/context ("I will send data next"), still reply with {"answer": "ok", "log_url": "LOG_URL"} unless it asks something.
+6. Only reply with {"answer":"ok","log_url":"LOG_URL"} when the user explicitly says they will send more data later (for example: "I will send data next"). For greetings such as "Hello", "Hi", or any normal message, answer normally instead of replying "ok".
 7. Round numbers as instructed; if unspecified, give reasonable precision. Never add keys that were not asked for inside "answer".
 """
 
