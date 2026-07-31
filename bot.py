@@ -134,7 +134,7 @@ def chat_completion(messages, use_tools=True):
     )
     r.raise_for_status()
 
-    log_event(event="raw_response", response=r.json())
+
 
     return r.json()["choices"][0]["message"]
 
@@ -196,7 +196,7 @@ def solve(chat_id: int, question: str) -> str:
                 }
             )
         try:
-            log_event(event="messages", messages=messages)
+
             msg = chat_completion(messages, use_tools=not out_of_time)
         except Exception as e:
             log_event(event="llm_error", chat_id=chat_id, error=str(e))
