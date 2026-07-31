@@ -193,6 +193,7 @@ def solve(chat_id: int, question: str) -> str:
                 }
             )
         try:
+            log_event(event="messages", messages=messages)
             msg = chat_completion(messages, use_tools=not out_of_time)
         except Exception as e:
             log_event(event="llm_error", chat_id=chat_id, error=str(e))
