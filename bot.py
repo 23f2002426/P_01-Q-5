@@ -217,6 +217,7 @@ def solve(chat_id: int, question: str) -> str:
                     {"role": "tool", "tool_call_id": tc["id"], "content": output}
                 )
             continue
+        log_event(event="model_response", response=str(msg))
         final_text = msg.get("content") or ""
         break
 
