@@ -133,6 +133,9 @@ def chat_completion(messages, use_tools=True):
         timeout=180,
     )
     r.raise_for_status()
+
+    log_event(event="raw_response", response=r.json())
+
     return r.json()["choices"][0]["message"]
 
 
